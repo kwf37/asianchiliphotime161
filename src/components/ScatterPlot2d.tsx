@@ -3,6 +3,10 @@ import { useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
 import { dataState } from "../model/dataPoint";
 import { randomColorFromLabel } from "../Utils";
+import styles from "./ScatterPlot2d.module.scss";
+
+const MIN = -180;
+const MAX = 180;
 
 type AxisType = "muppetMan" | "truckRobot" | "pickupDelivery";
 
@@ -41,6 +45,8 @@ function ScatterPlot2d(props: ScatterPlot2dProps): JSX.Element {
           ],
         },
         options: {
+          responsive: false,
+          aspectRatio: 1,
           scales: {
             x: {
               type: "linear",
@@ -48,13 +54,13 @@ function ScatterPlot2d(props: ScatterPlot2dProps): JSX.Element {
               ticks: {
                 callback: (val) => {
                   const [startLabel, endLabel] = getLabels(props.xData);
-                  if (val === -161) return startLabel;
-                  if (val === 161) return endLabel;
+                  if (val === MIN) return startLabel;
+                  if (val === MAX) return endLabel;
                   return "";
                 },
               },
-              min: -161,
-              max: 161,
+              min: MIN,
+              max: MAX,
             },
             y: {
               type: "linear",
@@ -62,13 +68,13 @@ function ScatterPlot2d(props: ScatterPlot2dProps): JSX.Element {
               ticks: {
                 callback: (val) => {
                   const [startLabel, endLabel] = getLabels(props.yData);
-                  if (val === -161) return startLabel;
-                  if (val === 161) return endLabel;
+                  if (val === MIN) return startLabel;
+                  if (val === MAX) return endLabel;
                   return "";
                 },
               },
-              min: -161,
-              max: 161,
+              min: MIN,
+              max: MAX,
             },
           },
           parsing: {
@@ -80,7 +86,7 @@ function ScatterPlot2d(props: ScatterPlot2dProps): JSX.Element {
       return () => myChart.destroy();
     }
   }, [canvasRef, props, data]);
-  return <canvas ref={canvasRef} />;
+  return <canvas className={styles.canvas} ref={canvasRef} />;
 }
 
 export default ScatterPlot2d;

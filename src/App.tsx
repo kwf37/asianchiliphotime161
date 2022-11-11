@@ -5,6 +5,7 @@ import DataForm from "./DataForm";
 import { RecoilRoot } from "recoil";
 import DataList from "./components/DataList";
 import ScatterPlot2d from "./components/ScatterPlot2d";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
               <DataList />
             </>
           }
-          main={<ScatterPlot2d xData="truckRobot" yData="muppetMan" />}
+          main={<Dashboard />}
         />
       </main>
     </RecoilRoot>

@@ -1,0 +1,25 @@
+.container {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+
+  /* Background */
+  background-color: #fff;
+}
+
+.drawer {
+  height: 100%;
+  width: 400px;
+
+  /* Background */
+  border-right: solid;
+}
+
+.main {
+  height: 100%;
+  flex-grow: 1;
+}

@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+
+  input {
+    flex: 0 0 200px;
+  }
+
+  label {
+    flex: 1;
+  }
+}

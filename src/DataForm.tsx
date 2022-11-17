@@ -25,7 +25,10 @@ function DataForm() {
       }}
     >
       <Form className={styles.form}>
-        <Field name="name" type="text" />
+        <label>
+          Name
+          <Field name="name" type="text" />
+        </label>
         <RangeInput name="truckRobot" leftLabel="Truck" rightLabel="Robot" />
         <RangeInput name="muppetMan" leftLabel="Muppet" rightLabel="Man" />
         <RangeInput
